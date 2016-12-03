@@ -10,16 +10,17 @@ class Courier::RPCClient
 
     @lock = Mutex.new
     @condition = ConditionVariable.new
-
-    subscribe_to_reply
   end
 
-  def call(correlation_id, message)
+  def call(message, correlation_id)
     self.correlation_id = correlation_id
+
+    consumer = subscribe_to_reply
     exchange.publish(message.to_s, routing_key: @name, reply_to: @reply_queue.name, correlation_id: correlation_id)
 
     # wait for condition
     lock.synchronize { condition.wait(lock) }
+    consumer.cancel
 
     response
   end
@@ -29,8 +30,7 @@ class Courier::RPCClient
   def subscribe_to_reply
     myself = self
     @reply_queue.subscribe do |delivery_info, properties, payload|
-      puts "Received correlation_id:#{properties[:correlation_id]}, mine:#{myself.correlation_id}"
-      if properties[:correlation_id] == myself.correlation_id
+      if properties[:correlation_id] == myself.correlation_id.to_s
         myself.response = payload
 
         # signal the condition
