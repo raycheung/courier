@@ -1,4 +1,4 @@
-class Courier::RPCClient
+class RabbitCourier::RPCClient
   DEFAULT_QUEUE_OPTS = {exclusive: false, auto_delete: false}
 
   attr_accessor :correlation_id, :response
@@ -40,7 +40,7 @@ class Courier::RPCClient
   end
 
   def channel
-    @channel ||= Courier.connection.create_channel
+    @channel ||= RabbitCourier.connection.create_channel
   end
 
   def exchange

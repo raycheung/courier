@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'courier/version'
+require 'rabbit_courier/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "courier"
-  spec.version       = Courier::VERSION
+  spec.name          = "rabbit_courier"
+  spec.version       = RabbitCourier::VERSION
   spec.authors       = ["Ray Cheung"]
   spec.email         = ["ray.swc@gmail.com"]
 
   spec.summary       = %q{A simplified interface for RPC over RabbitMQ.}
-  spec.homepage      = "https://github.com/raycheung/courier"
+  spec.homepage      = "https://github.com/raycheung/rabbit_courier"
   spec.licenses      = ["MIT"]
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'

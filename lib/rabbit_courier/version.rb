@@ -1,3 +1,3 @@
-module Courier
+module RabbitCourier
   VERSION = "0.1.0"
 end

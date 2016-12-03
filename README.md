@@ -1,4 +1,4 @@
-# Courier
+# RabbitCourier
 
 A simplified interface for RPC over RabbitMQ.
 
@@ -7,7 +7,7 @@ A simplified interface for RPC over RabbitMQ.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'courier'
+gem 'rabbit_courier'
 ```
 
 And then execute:
@@ -16,7 +16,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install courier
+    $ gem install rabbit_courier
 
 ## Usage
 
@@ -30,5 +30,5 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/courier.
+Bug reports and pull requests are welcome on GitHub at https://github.com/raycheung/rabbit_courier.
 
